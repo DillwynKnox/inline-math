@@ -75,7 +75,7 @@ function getEvaluation(editor: TextEditor, selection: Selection) {
   return undefined;
 }
 
-function getResult(text: string): EvaluationResult {
+export function getResult(text: string): EvaluationResult {
   // generateSubselections provide subsets in size order, so we always get the largest subSelection
   for (const subSelection of generateSubselections(text)) {
     const source = subSelection.join(' ').trim();

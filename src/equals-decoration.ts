@@ -1,5 +1,5 @@
 import * as vscode from 'vscode';
-import { evaluate } from 'mathjs';
+import { getResult } from './evaluate';
 
 let activeDecoration: vscode.TextEditorDecorationType | undefined = undefined;
 
@@ -43,7 +43,7 @@ export function activateEqualsDecoration() {
 
     try {
       const expression = lineText.slice(0, -1);
-      const result = evaluate(expression);
+      const { result } = getResult(expression); // Use cached evaluation
 
       setInActiveDecoration(activeEditor);
       setActiveDecoration();
