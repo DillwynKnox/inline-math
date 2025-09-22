@@ -15,6 +15,7 @@ import {
   updateDocumentChangeListener,
 } from './event-listeners';
 import { Constants, ExtensionConfig } from './types';
+import { activateEqualsDecoration } from './equals-decoration';
 
 /**
  * All user settings.
@@ -66,6 +67,7 @@ export function dispose() {
 export function activate(context: ExtensionContext) {
   function updateConfigAndEverything() {
     $config = workspace.getConfiguration().get(Constants.SettingsPrefix) as ExtensionConfig;
+    activateEqualsDecoration();
     dispose();
     if ($config.enabled) {
       refresh(context);
