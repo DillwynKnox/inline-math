@@ -24,7 +24,7 @@ function setInActiveDecoration(activeEditor: vscode.TextEditor) {
 export function activateEqualsDecoration() {
   vscode.workspace.onDidChangeTextDocument(evnt => {
     const activeEditor = vscode.window.activeTextEditor;
-    if (!activeEditor) return;
+    if (!activeEditor) {return;}
 
     const currentPosition = activeEditor.selection.active;
     const line = activeEditor.document.lineAt(currentPosition.line);
