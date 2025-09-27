@@ -58,7 +58,7 @@ export function activateEqualsDecoration() {
       }]);
 
       // Apply value of result to line after pressing Enter
-      if (evnt.contentChanges.some(change => change.text.includes('\n'))) {
+      if (evnt.contentChanges.some(change => change.text === '\n')) {
         const editWorkspace = new vscode.WorkspaceEdit();
         const editRange = new vscode.Range(
           rangeStart.translate(0, 1),
